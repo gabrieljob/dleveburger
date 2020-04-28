@@ -3,8 +3,6 @@ import { OrderService } from './order.service';
 import { CartItem } from '../cart/cart.model';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
-import * as cep from 'cep-promise';
-
 @Component({
   selector: 'app-order',
   templateUrl: './order.component.html',
