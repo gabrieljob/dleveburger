@@ -1,0 +1,13 @@
+<div class="modal--" *ngIf="show">
+  <div class="modal-content--">
+    <div class="head">
+      <i class="fa fa-times" aria-hidden="true" (click)="eventToggle()"></i>
+    </div>
+    <div class="body">
+      <h4>{{ text }}</h4>
+      <button class="btn btn-danger pl-5 pr-5 mt-2" (click)="eventToggle()">
+        Ok
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,63 @@
+.wrapper {
+  height: 100%;
+}
+
+section.content {
+  background-image: url(../../assets/img/menu-content.png);
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+section.content h4 {
+  color: #f2c64d;
+  font-size: 30px;
+  font-weight: 400;
+  margin-bottom: 18px;
+  display: block;
+  font-family: "Pacifico", cursive;
+}
+
+section.content h2 {
+  font-size: 50px;
+  font-weight: 700;
+  color: #1a0d01;
+  font-family: "Montserrat", sans-serif;
+  text-transform: uppercase;
+}
+
+.best-seller {
+  display: block;
+  overflow: hidden;
+}
+
+.best-seller .item {
+  position: relative;
+  width: 50%;
+  float: left;
+}
+
+.best-seller .item::before {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  content: "";
+  background: #1a0d01;
+  z-index: 1;
+  opacity: 0.4;
+}
+
+.best-seller .item .content {
+  position: relative;
+  overflow: hidden;
+}
+
+.best-seller .item .content img {
+  width: 100%;
+  transition: 0.4s;
+}
+
+.best-seller .item:hover img {
+  transform: scale(1.2);
+}

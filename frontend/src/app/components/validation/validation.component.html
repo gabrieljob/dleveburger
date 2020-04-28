@@ -1,0 +1,30 @@
+<span
+  class="text-danger"
+  *ngIf="name.invalid && (name.dirty || name.touched) && !name.value"
+  >{{ label }} obrigatório</span
+>
+<span
+  class="text-danger"
+  *ngIf="
+    name.invalid &&
+    name.errors.minlength &&
+    (name.dirty || name.touched) &&
+    name.value
+  "
+>
+  {{ label }} deve ter no mínimo
+  {{ name.errors.minlength.requiredLength }} dígitos
+</span>
+
+<span
+  class="text-danger"
+  *ngIf="
+    name.invalid &&
+    name.errors.maxlength &&
+    (name.dirty || name.touched) &&
+    name.value
+  "
+>
+  {{ label }} deve ter no máximo
+  {{ name.errors.maxlength.requiredLength }} dígitos
+</span>

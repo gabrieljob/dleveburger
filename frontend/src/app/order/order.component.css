@@ -1,0 +1,152 @@
+.content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 100%;
+}
+
+.checkout {
+  display: grid;
+  align-items: center;
+}
+
+.cart {
+  padding: 80px;
+}
+
+.cart-head {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cart h3 {
+  margin: 0;
+  font-weight: bold;
+}
+
+.cart h3 {
+  margin-left: 15px;
+}
+
+.cart h3:last-child {
+  margin-left: 0;
+  margin-right: 15px;
+}
+
+.cart .labels {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.cart .labels small {
+  font-weight: bold;
+  color: #929292;
+}
+
+.cart .item {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+}
+
+.cart .item a,
+.cart .item .ctrl a {
+  cursor: pointer;
+}
+
+.cart .item .ctrl a:first-child {
+  margin-right: 20px;
+}
+
+.cart .item .ctrl a:last-child {
+  margin-left: 20px;
+}
+
+.info .area {
+  background: #fafafa;
+  height: 100%;
+  width: 80%;
+  min-width: 300px;
+  padding: 80px;
+  float: right;
+}
+
+.info .area .area-head h3 {
+  font-weight: bold;
+  margin-left: 15px;
+}
+
+.info .area .area-body input,
+.info .area .area-body textarea {
+  margin-top: 15px;
+  height: 40px;
+  border: solid #ccc 1px;
+  border-radius: 10px;
+  padding-left: 10px;
+  font-size: 14px;
+  width: 100%;
+}
+
+.info .area .area-body textarea {
+  padding: 15px;
+  border-radius: 10px;
+  min-height: 80px;
+}
+
+.info .area .area-footer button {
+  background: red;
+  border: 0;
+  padding: 8px 16px;
+  color: #fff;
+  border-radius: 10px;
+  transition: opacity 0.3s;
+}
+
+.info .area .area-footer button:hover {
+  opacity: 0.7;
+}
+
+@media (max-width: 1366px) {
+  .content {
+    grid-template-columns: 1fr 400px;
+  }
+
+  .info .area {
+    width: 100%;
+  }
+}
+
+@media (max-width: 1024px) {
+  .content {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(1fr, 2);
+  }
+
+  .cart,
+  .info .area {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 471px) {
+  h3 {
+    font-size: 1rem;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  h4 {
+    font-size: 1rem;
+  }
+}
+
+.form-check {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.form-check input {
+  margin-top: 0 !important;
+  height: 15px !important;
+  width: 13px !important;
+}

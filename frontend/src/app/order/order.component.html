@@ -1,0 +1,197 @@
+<app-modal
+  [show]="show"
+  [text]="textModal"
+  (toggle)="toggleModal()"
+></app-modal>
+<div class="content">
+  <div class="cart">
+    <div class="cart-head">
+      <h3>Carrinho</h3>
+      <h3>Items: {{ cartItems().length }}</h3>
+    </div>
+    <h4 *ngIf="!cartItems().length" class="mt-3">
+      Nenhum hamburger no carrinho
+    </h4>
+    <div [hidden]="!cartItems().length">
+      <hr />
+      <div class="labels">
+        <small>Item</small>
+        <small>Qtd</small>
+        <small>Preço</small>
+      </div>
+      <hr />
+      <div class="item mt-3" *ngFor="let item of cartItems()">
+        <h4>{{ item.hamburger.title }}</h4>
+        <div class="ctrl">
+          <a (click)="decrementHamburger(item)"
+            ><i class="fa fa-minus text-danger"></i
+          ></a>
+          <span>{{ item.hamburger.quantity }}</span>
+          <a (click)="incrementHamburger(item)"
+            ><i class="fa fa-plus text-danger"></i
+          ></a>
+        </div>
+        <span class="text-success font-weight-bold">
+          {{ item.hamburger.price | currency }}
+        </span>
+      </div>
+    </div>
+    <h3 class="mt-5">Bebidas</h3>
+    <hr />
+    <app-drink
+      *ngFor="let drink of drinks"
+      [drink]="drink"
+      (inc)="inc($event)"
+      (dec)="dec($event)"
+    ></app-drink>
+  </div>
+  <div class="info">
+    <div class="area">
+      <div class="area-head">
+        <h3>Informações</h3>
+      </div>
+      <hr />
+      <div class="area-body">
+        <form [formGroup]="orderForm">
+          <div class="row m-0">
+            <small class="font-weight-bold mt-3">Informações Pessoais</small>
+            <div class="col-md-12">
+              <input type="text" placeholder="Nome" formControlName="name" />
+              <app-validation
+                [name]="orderForm.controls.name"
+                label="Nome"
+              ></app-validation>
+            </div>
+            <div class="col-md-12">
+              <input type="text" placeholder="E-mail" formControlName="email" />
+              <app-validation
+                [name]="orderForm.controls.email"
+                label="E-mail"
+              ></app-validation>
+            </div>
+            <div class="col-md-12">
+              <input
+                type="number"
+                placeholder="Telefone"
+                formControlName="phone"
+              />
+              <app-validation
+                [name]="orderForm.controls.phone"
+                label="Telefone"
+              ></app-validation>
+            </div>
+            <small class="font-weight-bold mt-5">Endereço</small>
+            <div class="col-md-12">
+              <input
+                type="number"
+                placeholder="CEP"
+                formControlName="cep"
+                maxlength="9"
+              />
+              <app-validation
+                [name]="orderForm.controls.cep"
+                label="cep"
+              ></app-validation>
+            </div>
+            <div class="col-md-12">
+              <input
+                type="text"
+                formControlName="city"
+                [value]="orderForm.controls.city"
+                placeholder="Cidade"
+              />
+              <app-validation
+                [name]="orderForm.controls.city"
+                label="Cidade"
+              ></app-validation>
+            </div>
+            <div class="col-md-12">
+              <input
+                type="text"
+                formControlName="neighborhood"
+                [value]="orderForm.controls.neighborhood"
+                placeholder="Cidade"
+              />
+              <app-validation
+                [name]="orderForm.controls.neighborhood"
+                label="Bairro"
+              ></app-validation>
+            </div>
+            <div class="col-md-12">
+              <input
+                type="text"
+                formControlName="street"
+                [value]="orderForm.controls.street"
+                placeholder="Rua"
+              />
+              <app-validation
+                [name]="orderForm.controls.street"
+                label="Rua"
+              ></app-validation>
+            </div>
+            <div class="col-md-4">
+              <input type="text" placeholder="N°" formControlName="n" />
+              <app-validation
+                [name]="orderForm.controls.n"
+                label="N°"
+              ></app-validation>
+            </div>
+            <div class="col-md-8">
+              <input
+                type="text"
+                placeholder="Complemento"
+                formControlName="complement"
+              />
+            </div>
+            <small class="font-weight-bold mt-5">Informações Adicionais</small>
+            <div class="col-md-12">
+              <textarea
+                placeholder="Alguma coisa que devemos saber?"
+                formControlName="text"
+              ></textarea>
+            </div>
+            <small class="font-weight-bold mt-3">Pagamento</small>
+            <div class="col-md-12">
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  formControlName="paymentOption"
+                  value="Dinheiro"
+                />
+                <label class="form-check-label">
+                  Dinheiro
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  formControlName="paymentOption"
+                  value="Cartão"
+                />
+                <label class="form-check-label">
+                  Cartão
+                </label>
+              </div>
+            </div>
+          </div>
+        </form>
+        <div class="mt-3">
+          <strong class="font-weight-bold mt-5">
+            Tele: <span class="text-success">R$8,00</span> </strong
+          ><br />
+          <strong class="font-weight-bold"
+            >Total:
+            <span class="text-success">{{ itemsValue() | currency }}</span>
+          </strong>
+        </div>
+      </div>
+      <div class="area-footer mt-5">
+        <button type="button" (click)="check(orderForm)">
+          Finalizar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

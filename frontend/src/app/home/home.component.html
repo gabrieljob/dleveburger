@@ -1,0 +1,30 @@
+<div class="wrapper" id="home">
+  <app-header></app-header>
+  <section class="content">
+    <div class="container">
+      <h4 class="text-center">Menu Hamburgers</h4>
+      <h2 class="text-center">Os Melhores Hamburgers</h2>
+      <div class="row" id="menu">
+        <div *ngFor="let item of items" class="col-md-6 mt-5">
+          <app-hamburger
+            [item]="item"
+            (add)="cart.addItem($event)"
+          ></app-hamburger>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="best-seller">
+    <div class="item">
+      <div class="content">
+        <img src="../../assets/img/bs1.png" />
+      </div>
+    </div>
+    <div class="item">
+      <div class="content">
+        <img src="../../assets/img/bs2.png" />
+      </div>
+    </div>
+  </div>
+  <app-cart #cart></app-cart>
+</div>

@@ -1,0 +1,64 @@
+<header>
+  <div class="overlay"></div>
+
+  <nav
+    class="navbar navbar-expand-lg navbar-dark"
+    [class.bg-transparent]="!background"
+    [class.bg-black]="background"
+  >
+    <h1
+      class="navbar-toggler"
+      data-toggle="collapse"
+      data-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+      (click)="click()"
+    >
+      Menu
+    </h1>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link active" pageScroll href="#home">Início</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" pageScroll [pageScrollDuration]="700" href="#menu"
+            >Menu</a
+          >
+        </li>
+        <!-- <li class="nav-item">
+          <a class="nav-link" pageScroll href="#menu">Sobre</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" pageScroll href="#menu">Comentários</a>
+        </li> -->
+      </ul>
+      <div class="order">
+        <a class="button--" pageScroll [pageScrollDuration]="700" href="#menu"
+          >Fazer pedido</a
+        >
+      </div>
+    </div>
+  </nav>
+
+  <div class="content">
+    <h1>
+      D'Leve <br />
+      Burger
+    </h1>
+    <h3>Delivery</h3>
+    <div class="social-media">
+      <div class="text-center mb-4">
+        <a href=""><i class="fa fa-facebook"></i></a>
+        <a href=""><i class="fa fa-twitter"></i></a>
+        <a href=""><i class="fa fa-instagram"></i></a>
+      </div>
+    </div>
+    <div class="mt-4">
+      <a class="button--" pageScroll [pageScrollDuration]="700" href="#menu"
+        >Menu</a
+      >
+    </div>
+  </div>
+</header>

@@ -1,0 +1,9 @@
+<div class="content">
+  <img src="../../../assets/img/1.png" class="float-left" />
+  <div class="info">
+    <h3>{{ item.title }}</h3>
+    <p>{{ item.description }}</p>
+    <h4>{{ item.price | currency }}</h4>
+    <a (click)="emitAddEvent()">Adicionar ao carrinho</a>
+  </div>
+</div>

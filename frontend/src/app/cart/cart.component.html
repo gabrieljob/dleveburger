@@ -1,0 +1,23 @@
+<div class="menu">
+  <div [hidden]="!show" class="content">
+    <span *ngIf="!items().length">Nenhum item no carrinho</span>
+    <div class="item" *ngFor="let item of items()">
+      <div>
+        <span>{{ item.hamburger.title }}</span>
+        <span>({{ item.hamburger.quantity }}x) - </span>
+        <span class="text-success">{{ item.hamburger.price | currency }}</span>
+      </div>
+      <a (click)="removeItem(item)">
+        <i class="fa fa-remove"></i>
+      </a>
+    </div>
+    <div class="finish">
+      <a [routerLink]="['/order']" (click)="save()">Finalizar</a>
+      <div>
+        <strong>Total: </strong>
+        <span class="text-success">{{ total() | currency }}</span>
+      </div>
+    </div>
+  </div>
+  <button (click)="toggle()"><i class="fa fa-shopping-cart"></i></button>
+</div>
